@@ -10,11 +10,13 @@ This is a code developed by Kenneth Desmond. I found it [here](https://physics.e
 
 # Building and Usage
 
-Running `make` should build the executable. I tested it on Windows using mingw-gcc and linux. There is [documentation](./Doucmentation.pdf) available.
+Running `make` should build the executable. I tested it on Windows using mingw-gcc and linux. There is [documentation](./doc/Doucmentation.pdf) available.
 
+## Example of usage
+`./rcpgenerator -v -f example/input.txt -o example` will take from `./example/input.txt` and write the final configuration to `./example/` directory.
+On Windows you may use `rcpgenerator.exe -v -f example\input.txt -o example`
 
 # Credit
 If you use this code please cite this paper:
 
-**"Random Close Packing of Disks and Spheres in Confined Geometries"
-Kenneth W. Desmond & Eric R. Weeks, Phys. Rev. E 80, 051305 (2009)**
+- Kenneth W. Desmond & Eric R. Weeks, "Random Close Packing of Disks and Spheres in Confined Geometries"  *Phys. Rev. E 80, 051305 (2009)*

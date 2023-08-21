@@ -1,26 +1,25 @@
-CPP = g++
+CXX = g++
 FLAGS = -O3 -march=native
 
-rcpgenerator.exe: rcpgenerator.o distance.o minimization.o histogram.o readwritedisplay.o twister.o
-	$(CPP) $(FLAGS) rcpgenerator.o distance.o minimization.o histogram.o readwritedisplay.o twister.o -o rcpgenerator.exe
+INCLUDES = include
+bin = rcpgenerator
 
-rcpgenerator.o: rcpgenerator.cpp
-	$(CPP) $(FLAGS) -c rcpgenerator.cpp
+src = $(wildcard ./src/*.cpp)
+obj = $(src:.cpp=.o)
 
-twister.o: twister.cpp
-	$(CPP) $(FLAGS) -c twister.cpp
+$(bin): $(obj)
+	$(CXX) $(FLAGS) $^ -o $@
 
-histogram.o: histogram.cpp
-	$(CPP) $(FLAGS) -c histogram.cpp
+%.o: %.cpp
+	$(CXX) $(FLAGS) -I$(INCLUDES) -c $< -o $@
 
-distance.o: distance.cpp
-	$(CPP) $(FLAGS) -c distance.cpp
+# clean for windows and linux
+ifeq ($(OS),Windows_NT)
+  clean_cmd = del /Q /S *.o *.exe *.a
+else
+  clean_cmd = rm -f ./src/*.o $(bin)
+endif
 
-minimization.o: minimization.cpp
-	$(CPP) $(FLAGS) -c minimization.cpp
-
-readwritedisplay.o: readwritedisplay.cpp
-	$(CPP) $(FLAGS) -c readwritedisplay.cpp
-
+.PHONY: clean
 clean:
-	del *.o
+	@$(clean_cmd)
