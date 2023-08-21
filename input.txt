@@ -1,0 +1,12 @@
+3                    //dim
+200                  //NSPH
+0.10                 //starting phi
+0.02                 //delta phi
+1.67                  //sigma
+0.5                  //number ratio
+0 1.0 0.0 1.0 0 1.0    //Box
+0 1 1                //Boundary
+1                    //fix y
+0.99                //minr tol
+1e-04                //dV tol
+1969                //seed

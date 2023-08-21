@@ -5,6 +5,7 @@
 #include <sstream>
 #include <fstream>
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -16,5 +17,3 @@ void SaveConfig3d(string savedir, long n, long dim, double sigma, double num_rat
 string getdatadir(char Directory[], int length);
 
 string getsavedir(string datadir);
-
-

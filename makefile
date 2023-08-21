@@ -1,21 +1,26 @@
-    rcpgenerator.exe: rcpgenerator.o distance.o minimization.o histogram.o readwritedisplay.o twister.o
-	g++ rcpgenerator.o distance.o minimization.o histogram.o readwritedisplay.o twister.o -o rcpgenerator.exe
+CPP = g++
+FLAGS = -O3 -march=native
 
-    rcpgenerator.o: rcpgenerator.cpp
-	g++ -c rcpgenerator.cpp
+rcpgenerator.exe: rcpgenerator.o distance.o minimization.o histogram.o readwritedisplay.o twister.o
+	$(CPP) $(FLAGS) rcpgenerator.o distance.o minimization.o histogram.o readwritedisplay.o twister.o -o rcpgenerator.exe
 
-    twister.o: twister.cpp
-	g++ -c twister.cpp
+rcpgenerator.o: rcpgenerator.cpp
+	$(CPP) $(FLAGS) -c rcpgenerator.cpp
 
-    histogram.o: histogram.cpp
-	g++ -c histogram.cpp
+twister.o: twister.cpp
+	$(CPP) $(FLAGS) -c twister.cpp
 
-    distance.o: distance.cpp
-	g++ -c distance.cpp
+histogram.o: histogram.cpp
+	$(CPP) $(FLAGS) -c histogram.cpp
 
-    minimization.o: minimization.cpp
-	g++ -c minimization.cpp
+distance.o: distance.cpp
+	$(CPP) $(FLAGS) -c distance.cpp
 
-    readwritedisplay.o: readwritedisplay.cpp
-	g++ -c readwritedisplay.cpp
+minimization.o: minimization.cpp
+	$(CPP) $(FLAGS) -c minimization.cpp
 
+readwritedisplay.o: readwritedisplay.cpp
+	$(CPP) $(FLAGS) -c readwritedisplay.cpp
+
+clean:
+	del *.o
